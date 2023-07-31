@@ -1,4 +1,4 @@
-use super::element::{Element};
+use super::element::Element;
 
 pub struct Div<'a> {
     pub elements: Vec<Box<&'a dyn Element>>,
