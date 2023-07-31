@@ -1,7 +1,8 @@
-use crate::library::{page::page, header::Header};
+use crate::{library::{page::page}, elements::hello::Hello};
 
 pub fn home() -> String {
+    let count = 10;
     page(vec![
-        &Header{ h_type: "1".to_string(), text: "Hello, World".to_string() },
+        &Hello {}; count
     ])
 }
