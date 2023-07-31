@@ -1,23 +1,7 @@
-use std::cell::RefCell;
+use crate::library::{page::page, header::Header};
 
-use crate::library::{element::Element, page::Page};
-
-pub struct Home {
-    elements: Box<RefCell<Vec<&'static mut dyn Element>>>,
-}
-
-impl Home {
-    pub fn new() -> Self {
-        Self {
-            elements: Box::new(RefCell::new(vec![
-
-            ])),
-        }
-    }
-}
-
-impl Page for Home {
-    fn return_elements(&mut self) -> Option<&Box<RefCell<Vec<&'static mut dyn Element>>>> {
-        Some(&self.elements)
-    }
+pub fn home() -> String {
+    page(vec![
+        &Header{ h_type: "1".to_string(), text: "Hello, World".to_string() },
+    ])
 }
