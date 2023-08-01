@@ -1,31 +1,27 @@
 use super::element::Element;
 
-pub struct Header {
-    pub h_type: String,
+pub struct Paragraph {
     pub text: String,
     pub style: Option<String>,
 }
 
-impl Header {
-    #[allow(unused)]
-    pub fn new(h_type: &str, text: &str, style: Option<&str>) -> Header {
+impl Paragraph {
+    pub fn new(text: &str, style: Option<&str>) -> Self {
         if style != None {
-            return Header {
-                h_type: h_type.to_string(),
+            return Self {
                 text: text.to_string(),
                 style: Some(style.unwrap().to_string()),
             };
         }
         
-        Header {
-            h_type: h_type.to_string(),
+        Self {
             text: text.to_string(),
             style: None,
         }
     }
 }
 
-impl Element for Header {
+impl Element for Paragraph {
     fn get_html(&self) -> String {
         let mut style_imp = String::new();
 
@@ -33,6 +29,6 @@ impl Element for Header {
             style_imp = " style=\"".to_owned() + self.style.as_ref().unwrap().as_str() + "\" ";
         }
 
-        "<h".to_owned() + self.h_type.as_str() + &style_imp + ">" + self.text.as_str() + "</h" + self.h_type.as_str() + ">"
+        "<p".to_owned() + &style_imp + ">" + self.text.as_str() + "</p>"
     }
 }
