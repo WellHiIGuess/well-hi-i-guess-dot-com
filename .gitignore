@@ -1,2 +1,4 @@
 /target
 /Cargo.lock
+/src/app/home.rs
+/src/elements/hello.rs
