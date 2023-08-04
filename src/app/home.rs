@@ -1,7 +1,6 @@
-use crate::{library::page::page, elements::hello::Hello};
+use crate::{library::page::page};
 
 pub fn home() -> String {
     page(vec![
-        &Hello {}
     ])
 }
